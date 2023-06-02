@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap");
+
+:root {
+  --default-border-radius: 5px;
+  --default-white: hsla(0, 0%, 100%, 1);
+  --default-red: hsla(334, 99%, 48%, 1);
+  --default-border-color: hsla(219, 18%, 39%, 0.5);
+  --default-red-background: var(--default-red);
+  --default-background: hsla(240, 25%, 98%, 1);
+
+  --background-login-container: var(--default-red-background);
+  --login-container-border-color: hsla(220, 32%, 93%, 1);
+
+  --input-border-color: var(--default-border-color);
+  --input-border-radius: var(--default-border-radius);
+
+  --font-family: "Sora", sans-serif;
+  --font-color-black-dark: hsla(213, 10%, 18%, 1);
+  --font-color-black-soft: var(--default-border-color);
+  --font-color-white: var(--default-white);
+  --font-color-link: var(--default-red-background);
+  --font-color-reset-password-text: hsla(219, 18%, 39%, 1);
+
+  --button-login-background: var(--default-red-background);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  line-height: 1.5;
+}
+
+button,
+input,
+p {
+  font: inherit;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--font-color-black-dark);
+  font-size: 1.125rem;
+  font-weight: 400;
+
+  background-color: var(--default-background);
+}
