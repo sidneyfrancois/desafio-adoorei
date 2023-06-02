@@ -1,7 +1,21 @@
-<script setup></script>
+<script setup>
+import Login from "./Views/Login.vue";
+</script>
 
 <template>
-  <h1>Adoorei App</h1>
+  <main>
+    <Login />
+  </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+
+  min-height: 100vh;
+}
+</style>
