@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import Input from "../components/Input.vue";
+import { useRouter, useRoute } from "vue-router";
 
 const email = ref("");
 const password = ref("");
@@ -9,6 +10,8 @@ function handleLoginUser() {
   // call API to login
   console.log(email.value);
   console.log(password.value);
+  console.log(useRoute());
+  console.log(useRouter());
 }
 </script>
 <template>
