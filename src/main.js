@@ -3,10 +3,14 @@ import "./reset.css";
 import { createRouter, createWebHistory } from "vue-router";
 import App from "./App.vue";
 import Login from "@/Views/Login.vue";
+import Home from "@/Views/Home.vue";
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: [{ path: "/login", name: "Login", component: Login }],
+  routes: [
+    { path: "/home", name: "Home", component: Home },
+    { path: "/login", name: "Login", component: Login },
+  ],
 });
 
 createApp(App).use(router).mount("#app");

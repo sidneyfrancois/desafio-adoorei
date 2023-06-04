@@ -5,6 +5,7 @@ import { useRouter, useRoute } from "vue-router";
 
 const email = ref("");
 const password = ref("");
+const router = useRouter();
 
 function handleLoginUser() {
   // call API to login
@@ -12,6 +13,7 @@ function handleLoginUser() {
   console.log(password.value);
   console.log(useRoute());
   console.log(useRouter());
+  router.push({ path: "/home" });
 }
 </script>
 <template>

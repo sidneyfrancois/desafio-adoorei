@@ -22,6 +22,8 @@
   --font-color-reset-password-text: hsla(219, 18%, 39%, 1);
 
   --button-login-background: var(--default-red-background);
+
+  --aspect-ratio: calc((9 / 16) * 100%);
 }
 
 *,
