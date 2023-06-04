@@ -15,35 +15,47 @@ function handleLoginUser() {
 }
 </script>
 <template>
-  <div>
-    <a href="index.html">
-      <img src="../assets/locaweb-logo.png" alt="locaweb logo" />
-    </a>
-  </div>
-  <div class="login-container">
-    <div class="login-header">
-      <h2>Entre na sua conta</h2>
-      <p>Para acessar a sua conta informe seu e-mail e senha</p>
+  <main>
+    <div>
+      <a href="index.html">
+        <img src="../assets/locaweb-logo.png" alt="locaweb logo" />
+      </a>
     </div>
-    <form
-      @submit.prevent="handleLoginUser"
-      id="form1"
-      class="login-input-container"
-    >
-      <Input label="E-mail" v-model:dataInput="email" />
-      <Input label="Senha" v-model:dataInput="password">
-        <template #bottomLabel>
-          <a href="">Esqueci a minha senha</a>
-        </template>
-      </Input>
-    </form>
-    <button type="submit" form="form1" class="btn-login">Fazer Login</button>
-  </div>
-  <div class="register-tip">
-    Ainda não tem conta? <a href="">Cadastre-se</a>
-  </div>
+    <div class="login-container">
+      <div class="login-header">
+        <h2>Entre na sua conta</h2>
+        <p>Para acessar a sua conta informe seu e-mail e senha</p>
+      </div>
+      <form
+        @submit.prevent="handleLoginUser"
+        id="form1"
+        class="login-input-container"
+      >
+        <Input label="E-mail" v-model:dataInput="email" />
+        <Input label="Senha" v-model:dataInput="password">
+          <template #bottomLabel>
+            <a href="">Esqueci a minha senha</a>
+          </template>
+        </Input>
+      </form>
+      <button type="submit" form="form1" class="btn-login">Fazer Login</button>
+    </div>
+    <div class="register-tip">
+      Ainda não tem conta? <a href="">Cadastre-se</a>
+    </div>
+  </main>
 </template>
 <style>
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+
+  min-height: 100vh;
+}
+
 .login-container {
   display: flex;
   flex-direction: column;

@@ -6,7 +6,7 @@ import Login from "@/Views/Login.vue";
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: [{ path: "/", name: "Login", component: Login }],
+  routes: [{ path: "/login", name: "Login", component: Login }],
 });
 
 createApp(App).use(router).mount("#app");
