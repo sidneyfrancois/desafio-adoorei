@@ -1,7 +1,6 @@
 <script setup>
-import { ref, computed } from "vue";
-import { storeToRefs } from "pinia";
 import { usePlanStore } from "@/store";
+import { useRouter } from "vue-router";
 import Plan from "@/components/Plan.vue";
 
 const plans = [
@@ -30,7 +29,6 @@ const plans = [
       "Certificado SSL Grátis",
       "Transferência ilimitada",
     ],
-    isSelected: false,
   },
   {
     id: 2,
@@ -57,7 +55,6 @@ const plans = [
       "Certificado SSL Grátis",
       "Transferência ilimitada",
     ],
-    isSelected: false,
   },
   {
     id: 3,
@@ -84,17 +81,19 @@ const plans = [
       "Certificado SSL Grátis",
       "Transferência ilimitada",
     ],
-    isSelected: false,
   },
 ];
 
 const selectedPlanStore = usePlanStore();
+const router = useRouter();
 
 function handleSelectPlan(id) {
   const selectedPlan = plans.find((p) => p.id === id);
   selectedPlanStore.$patch({
     selectedPlan: selectedPlan,
   });
+
+  router.push("/register");
 }
 </script>
 
