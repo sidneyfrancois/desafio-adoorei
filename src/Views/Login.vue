@@ -43,7 +43,10 @@ function handleLoginUser() {
       <button type="submit" form="form1" class="btn-login">Fazer Login</button>
     </div>
     <div class="register-tip">
-      Ainda não tem conta? <a href="">Cadastre-se</a>
+      Ainda não tem conta?
+      <label class="register-link">
+        <router-link to="/plans">Cadastre-se</router-link>
+      </label>
     </div>
   </main>
 </template>
@@ -91,7 +94,7 @@ main {
   background-color: hsla(334, 99%, 48%, 0.8);
 }
 
-.register-tip a {
+.register-link {
   color: var(--default-red);
 }
 </style>
