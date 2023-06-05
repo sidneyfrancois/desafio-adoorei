@@ -1,3 +1,8 @@
+<script setup>
+import FormRegistration from "@/components/FormRegistration.vue";
+import Plan from "@/components/Plan.vue";
+</script>
 <template>
-  <h1>sign up</h1>
+  <FormRegistration />
+  <Plan />
 </template>
