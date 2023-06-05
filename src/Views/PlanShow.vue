@@ -1,9 +1,12 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { storeToRefs } from "pinia";
+import { usePlanStore } from "@/store";
 import Plan from "@/components/Plan.vue";
 
 const plans = [
   {
+    id: 1,
     name: "Hospedagem 1",
     price: "Grátis",
     isFree: true,
@@ -27,8 +30,10 @@ const plans = [
       "Certificado SSL Grátis",
       "Transferência ilimitada",
     ],
+    isSelected: false,
   },
   {
+    id: 2,
     name: "Hospedagem 2",
     price: "499",
     isFree: false,
@@ -52,8 +57,10 @@ const plans = [
       "Certificado SSL Grátis",
       "Transferência ilimitada",
     ],
+    isSelected: false,
   },
   {
+    id: 3,
     name: "Hospedagem 3",
     price: "999",
     isFree: false,
@@ -77,8 +84,18 @@ const plans = [
       "Certificado SSL Grátis",
       "Transferência ilimitada",
     ],
+    isSelected: false,
   },
 ];
+
+const selectedPlanStore = usePlanStore();
+
+function handleSelectPlan(id) {
+  const selectedPlan = plans.find((p) => p.id === id);
+  selectedPlanStore.$patch({
+    selectedPlan: selectedPlan,
+  });
+}
 </script>
 
 <template>
@@ -89,8 +106,9 @@ const plans = [
     Você está muito próximo de mudar a forma de <label>hospedar seu site</label>
   </h2>
   <label>escolha o seu plano</label>
-  <div v-for="(plan, index) in plans" :key="index">
+  <div v-for="plan in plans" :key="plan.id">
     <Plan
+      :id="plan.id"
       :name="plan.name"
       :price="plan.price"
       :isFree="plan.isFree"
@@ -100,6 +118,7 @@ const plans = [
       :plan-features="plan.planFeatures"
       :applications-available="plan.applicationsAvailable"
       :additional-features="plan.additionalFeatures"
+      @select-plan="handleSelectPlan"
     />
   </div>
 </template>

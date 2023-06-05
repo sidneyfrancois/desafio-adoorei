@@ -1,9 +1,10 @@
 <script setup>
 import { useRouter } from "vue-router";
 
-const router = useRouter();
+defineEmits(["selectPlan"]);
 
 defineProps({
+  id: Number,
   name: String,
   price: String,
   isMostUsed: Boolean,
@@ -14,10 +15,6 @@ defineProps({
   applicationsAvailable: Array,
   additionalFeatures: Array,
 });
-
-function handleSelectPlan() {
-  router.push({ path: "register" });
-}
 </script>
 <template>
   <div v-if="isMostUsed">mais usado</div>
@@ -26,7 +23,7 @@ function handleSelectPlan() {
   <p v-else>R${{ price }}/mês</p>
   <p>{{ description }}</p>
   <p>{{ targetAudience }}</p>
-  <button @click="handleSelectPlan">escolher esse plano</button>
+  <button @click="$emit('selectPlan', id)">Selecione</button>
   <div v-if="isFree">
     <h3>Seu site em servidores <label>no Estados Unidos</label></h3>
   </div>

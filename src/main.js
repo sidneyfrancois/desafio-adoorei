@@ -1,11 +1,14 @@
 import { createApp } from "vue";
 import "./reset.css";
 import { createRouter, createWebHistory } from "vue-router";
+import { createPinia } from "pinia";
 import App from "./App.vue";
 import Login from "@/Views/Login.vue";
 import Home from "@/Views/Home.vue";
 import PlanShow from "@/Views/PlanShow.vue";
 import SignUp from "@/Views/SignUp.vue";
+
+const pinia = createPinia();
 
 const router = createRouter({
   history: createWebHistory(),
@@ -17,4 +20,4 @@ const router = createRouter({
   ],
 });
 
-createApp(App).use(router).mount("#app");
+createApp(App).use(pinia).use(router).mount("#app");
