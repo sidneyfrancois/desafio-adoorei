@@ -2,25 +2,14 @@
 import { ref } from "vue";
 import Input from "../components/Input.vue";
 import { useRouter, useRoute } from "vue-router";
-import { useAuthenticate } from "@/store";
-import { useLocalStorage } from "@vueuse/core";
 
 const email = ref("");
 const password = ref("");
 const router = useRouter();
-const isAuthenticated = useAuthenticate();
 
 function handleLoginUser() {
   // call API to login
-  console.log(email.value);
-  console.log(password.value);
-  console.log(useRoute());
-  console.log(useRouter());
   router.push({ path: "/home" });
-
-  isAuthenticated.$patch({
-    isAuthenticated: useLocalStorage("isAuthenticated", true),
-  });
 }
 </script>
 <template>

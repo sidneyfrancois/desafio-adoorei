@@ -6,6 +6,9 @@ import { usePlanStore } from "@/store";
 const selectedPlanStore = usePlanStore();
 </script>
 <template>
+  <h1>
+    Você está muito próximo de mudar a forma de <label>hospedar seu site</label>
+  </h1>
   <FormRegistration />
   <Plan
     :id="selectedPlanStore.selectedPlan.id"
