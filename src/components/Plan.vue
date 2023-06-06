@@ -24,8 +24,8 @@ function handleChangePlan() {
 </script>
 <template>
   <div class="plan-container" :class="{ 'plan-height-selected': isSelected }">
-    <div v-if="isMostUsed" class="most-used-tag">mais usado</div>
-    <div v-if="isSelected">plano escolhido</div>
+    <div v-if="isMostUsed && !isSelected" class="show-tag">mais usado</div>
+    <div v-if="isSelected" class="show-tag chosen-tag">plano escolhido</div>
     <h2>{{ name }}</h2>
     <h2 v-if="isFree" class="price-tag">{{ price }}</h2>
     <h2 v-else class="price-tag">R${{ price }}/mês</h2>
@@ -82,7 +82,7 @@ function handleChangePlan() {
   </div>
 </template>
 <style>
-.most-used-tag {
+.show-tag {
   position: absolute;
   color: var(--default-white);
   background-color: var(--default-green);
@@ -92,6 +92,10 @@ function handleChangePlan() {
 
   text-transform: uppercase;
   font-size: 0.9em;
+}
+
+.chosen-tag {
+  background-color: var(--font-color-black-dark);
 }
 
 .plan-container {
