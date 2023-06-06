@@ -130,7 +130,7 @@ function handleSelectPlan(id) {
 </template>
 <style>
 main {
-  padding: 4rem;
+  background-color: var(--default-background);
 }
 
 .plans-header {
@@ -141,7 +141,6 @@ main {
 
   padding: 1rem;
   text-align: center;
-  width: 70%;
 }
 
 .plans-header label {
@@ -151,7 +150,21 @@ main {
 
 .plans-even-columns {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
+  gap: 1.8rem;
+}
+
+@media (min-width: 50rem) {
+  .plans-even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+
+  .plans-header {
+    width: 70%;
+  }
+
+  main {
+    padding: 4rem;
+  }
 }
 </style>

@@ -7,6 +7,9 @@
   --default-border-color: hsla(219, 18%, 39%, 0.5);
   --default-red-background: var(--default-red);
   --default-background: hsla(240, 25%, 98%, 1);
+  --default-plan-title-color: hsla(0, 0%, 40%, 1);
+
+  --default-line-color: hsla(0, 0%, 77%, 0.5);
 
   --background-login-container: var(--default-red-background);
   --login-container-border-color: hsla(220, 32%, 93%, 1);
