@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import Input from "../components/Input.vue";
-import { useRouter, useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 
 const email = ref("");
 const password = ref("");
@@ -16,8 +16,13 @@ async function handleLoginUser() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: "mor_2314",
-        password: "83r5^_",
+        /**
+         * valid user
+         * username: "mor_2314"
+         * password: "83r5^_"
+         */
+        username: email.value,
+        password: password.value,
       }),
     });
     const data = await response.json();
