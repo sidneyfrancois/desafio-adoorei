@@ -18,7 +18,7 @@ defineProps({
 </script>
 <template>
   <div class="plan-container">
-    <div v-if="isMostUsed">mais usado</div>
+    <div v-if="isMostUsed" class="most-used-tag">mais usado</div>
     <h2>{{ name }}</h2>
     <h2 v-if="isFree" class="price-tag">{{ price }}</h2>
     <h2 v-else class="price-tag">R${{ price }}/mês</h2>
@@ -64,10 +64,25 @@ defineProps({
   </div>
 </template>
 <style>
+.most-used-tag {
+  position: absolute;
+  color: var(--default-white);
+  background-color: var(--default-green);
+  padding: 0.3rem 0.8rem;
+  border-radius: 10px;
+  top: -1rem;
+
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
 .plan-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  /* relative for the most-used-tag */
+  position: relative;
 
   text-align: center;
   color: var(--default-plan-title-color);

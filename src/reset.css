@@ -8,6 +8,7 @@
   --default-red-background: var(--default-red);
   --default-background: hsla(240, 25%, 98%, 1);
   --default-plan-title-color: hsla(0, 0%, 40%, 1);
+  --default-green: hsla(115, 100%, 38%, 1);
 
   --default-line-color: hsla(0, 0%, 77%, 0.5);
 
