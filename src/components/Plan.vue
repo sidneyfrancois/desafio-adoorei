@@ -1,7 +1,8 @@
 <script setup>
 import { useRouter } from "vue-router";
-
 defineEmits(["selectPlan"]);
+
+const router = useRouter();
 
 defineProps({
   id: Number,
@@ -14,20 +15,30 @@ defineProps({
   planFeatures: Array,
   applicationsAvailable: Array,
   additionalFeatures: Array,
+  isSelected: Boolean,
 });
+
+function handleChangePlan() {
+  router.push("/plans");
+}
 </script>
 <template>
-  <div class="plan-container">
+  <div class="plan-container" :class="{ 'plan-height-selected': isSelected }">
     <div v-if="isMostUsed" class="most-used-tag">mais usado</div>
+    <div v-if="isSelected">plano escolhido</div>
     <h2>{{ name }}</h2>
     <h2 v-if="isFree" class="price-tag">{{ price }}</h2>
     <h2 v-else class="price-tag">R${{ price }}/mês</h2>
     <p class="description">{{ description }}</p>
     <p class="target-audience">{{ targetAudience }}</p>
-    <button class="btn-select-plan" @click="$emit('selectPlan', id)">
+    <button
+      v-if="!isSelected"
+      class="btn-select-plan"
+      @click="$emit('selectPlan', id)"
+    >
       escolher esse plano
     </button>
-    <div class="features">
+    <div class="features" :class="{ 'fade-expand-features': isSelected }">
       <div v-if="isFree">
         <h4>Seu site em servidores <label>no Estados Unidos</label></h4>
       </div>
@@ -60,6 +71,13 @@ defineProps({
           {{ plus }}
         </li>
       </ul>
+      <button
+        v-if="isSelected"
+        @click="handleChangePlan"
+        class="btn-change-plan"
+      >
+        Trocar plano
+      </button>
     </div>
   </div>
 </template>
@@ -91,9 +109,12 @@ defineProps({
   padding: 2rem;
 }
 
+.plan-height-selected {
+  height: 70%;
+}
+
 .price-tag {
   color: var(--default-red);
-  /* padding-bottom: 0.5rem; */
 }
 
 .description {
@@ -124,6 +145,18 @@ defineProps({
   text-align: initial;
 }
 
+.fade-expand-features {
+  overflow: hidden;
+  background-image: linear-gradient(
+    180deg,
+    var(--default-plan-title-color) 70%,
+    transparent 100%
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 .features ul {
   list-style: none;
   padding-left: 1.2rem;
@@ -144,5 +177,17 @@ defineProps({
 
 .support-description {
   margin: 1rem 0;
+}
+
+.btn-change-plan {
+  color: var(--font-color-black-dark);
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 1rem 0;
+  width: 90%;
+
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
 }
 </style>

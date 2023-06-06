@@ -1,32 +1,83 @@
+<script setup>
+import Input from "./Input.vue";
+</script>
+
 <template>
-  <h2>Dados pessoais</h2>
-  <p>Informe seus dados pessoais para acesso à sua conta</p>
-  <form action="">
-    <label for="name-input">Nome completo</label>
-    <input
-      id="name-input"
-      name="user-name"
-      placeholder="Informe seu nome completo"
-      type="text"
-    />
-    <label for="celular-input">Celular</label>
-    <input type="text" id="celular-input" placeholder="(99) 99999-0000" />
-    <label for="email-input">E-mail</label>
-    <input type="text" id="email-input" placeholder="Informe seu e-mail" />
-    <label for="password-input">Senha</label>
-    <input type="text" id="password-input" />
-    <label for="password-input-confirmation">Confirme sua senha</label>
-    <input type="text" id="password-input-confirmation" />
-    <hr />
-    <h2>Dados do seu site</h2>
-    <label for="">Nome do seu site</label>
-    <input type="text" />
-    <hr />
-    <label for="">
-      Ao concluir com seu cadastro você concorda com nossos
-      <label>termos de uso e politicas de privacidade</label>
-    </label>
-    <input type="checkbox" />
-  </form>
-  <button>criat conta</button>
+  <div class="form-registration">
+    <h2>Dados pessoais</h2>
+    <p>Informe seus dados pessoais para acesso à sua conta</p>
+    <form class="form-user">
+      <div class="basic-user-info">
+        <Input label="Nome completo" />
+        <Input label="Celular" />
+        <Input label="E-mail" />
+        <Input label="Senha" />
+        <Input label="Confirme sua senha" />
+      </div>
+      <hr />
+      <div class="website-registration">
+        <h2>Dados do seu site</h2>
+        <Input label="Nome do seu site" />
+      </div>
+      <hr />
+      <div class="checkbox-registration">
+        <input type="checkbox" id="checkbox-privacy" />
+        <label for="checkbox-privacy">
+          Ao concluir com seu cadastro você concorda com nossos
+          <label class="privacy-note"
+            >termos de uso e politicas de privacidade</label
+          >
+        </label>
+      </div>
+    </form>
+    <button class="btn-registration">criar conta</button>
+  </div>
 </template>
+<style>
+.form-registration {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--default-white);
+  padding: 2rem;
+}
+
+.form-user {
+  display: flex;
+  flex-direction: column;
+}
+
+.basic-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.website-registration {
+  margin: 1rem 0;
+}
+
+.checkbox-registration {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+
+  margin: 1rem 0;
+}
+
+.checkbox-registration > label {
+  padding-right: 7rem;
+}
+
+.privacy-note {
+  text-decoration: underline;
+}
+
+.btn-registration {
+  border: none;
+  color: var(--default-white);
+  background-color: var(--default-red);
+  padding: 1rem 0;
+  text-transform: uppercase;
+}
+</style>
