@@ -7,9 +7,25 @@ const email = ref("");
 const password = ref("");
 const router = useRouter();
 
-function handleLoginUser() {
+async function handleLoginUser() {
   // call API to login
-  router.push({ path: "/home" });
+  try {
+    const response = await fetch("https://fakestoreapi.com/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: "mor_2314",
+        password: "83r5^_",
+      }),
+    });
+    const data = await response.json();
+    localStorage.setItem("token", data.token);
+    router.push({ path: "/home" });
+  } catch (error) {
+    console.error(error);
+  }
 }
 </script>
 <template>

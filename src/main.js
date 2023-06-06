@@ -10,7 +10,9 @@ import SignUp from "@/Views/SignUp.vue";
 
 const pinia = createPinia();
 
-const isAuthenticated = false;
+const isAuthenticated = () => {
+  return localStorage.getItem("token");
+};
 
 const router = createRouter({
   history: createWebHistory(),
@@ -24,13 +26,11 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  console.log(isAuthenticated);
-  console.log(to.name);
   if (
     to.name !== "Login" &&
     to.name !== "Plans" &&
     to.name !== "Registration" &&
-    !isAuthenticated
+    !isAuthenticated()
   ) {
     next({ name: "Login" });
   } else {
@@ -39,7 +39,7 @@ router.beforeEach((to, from, next) => {
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.name !== "Home" && isAuthenticated) {
+  if (to.name !== "Home" && isAuthenticated()) {
     next({ name: "Home" });
   } else {
     next();
