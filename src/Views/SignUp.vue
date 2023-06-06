@@ -40,7 +40,7 @@ const selectedPlanStore = usePlanStore();
 
 <style>
 .register-container {
-  padding: 2rem 12rem;
+  padding: 2rem 0;
 }
 
 .register-header {
@@ -49,11 +49,10 @@ const selectedPlanStore = usePlanStore();
   align-items: center;
   gap: 1rem;
 
-  padding: 1rem;
   text-align: center;
   margin: 0 auto;
 
-  width: 50%;
+  width: 90%;
 }
 
 .register-header label {
@@ -63,10 +62,32 @@ const selectedPlanStore = usePlanStore();
 
 .form-container {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 70% 1fr;
   align-items: start;
 
   gap: 2rem;
+}
+
+@media (min-width: 50rem) {
+  .register-container {
+    padding: 2rem 12rem;
+  }
+
+  .register-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 1rem;
+    text-align: center;
+    margin: 0 auto;
+
+    width: 50%;
+  }
+
+  .form-container {
+    grid-auto-flow: column;
+    grid-auto-columns: 70% 1fr;
+  }
 }
 </style>
