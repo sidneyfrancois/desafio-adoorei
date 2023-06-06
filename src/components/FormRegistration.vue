@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import Input from "./Input.vue";
 import { useUserStore } from "@/store";
+import { useRouter } from "vue-router";
 
 const fullName = ref("");
 const cellphone = ref("");
@@ -12,6 +13,8 @@ const websiteName = ref("");
 const privacyCheck = ref(false);
 
 const registeredUser = useUserStore();
+
+const router = useRouter();
 
 async function handleCreateAccount() {
   if (privacyCheck.value) {
@@ -38,6 +41,9 @@ async function handleCreateAccount() {
         email: email.value,
         websiteName: websiteName.value,
       });
+
+      // return to login page
+      router.push("/");
     } catch (error) {
       console.log(error);
     }
