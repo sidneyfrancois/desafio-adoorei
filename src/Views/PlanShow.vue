@@ -98,27 +98,60 @@ function handleSelectPlan(id) {
 </script>
 
 <template>
-  <div>
-    <img src="../assets/locaweb-logo.png" alt="locaweb logo" />
-  </div>
-  <h2>
-    Você está muito próximo de mudar a forma de <label>hospedar seu site</label>
-  </h2>
-  <label>escolha o seu plano</label>
-  <div v-for="plan in plans" :key="plan.id">
-    <Plan
-      :id="plan.id"
-      :name="plan.name"
-      :price="plan.price"
-      :isFree="plan.isFree"
-      :is-most-used="plan.isMostUsed"
-      :description="plan.description"
-      :target-audience="plan.targetAudience"
-      :plan-features="plan.planFeatures"
-      :applications-available="plan.applicationsAvailable"
-      :additional-features="plan.additionalFeatures"
-      @select-plan="handleSelectPlan"
-    />
-  </div>
+  <main>
+    <div class="plans-header">
+      <div>
+        <img src="../assets/locaweb-logo.png" alt="locaweb logo" />
+      </div>
+      <h2>
+        Você está muito próximo de mudar a forma de
+        <label>hospedar seu site</label>
+      </h2>
+      <p>escolha o seu plano</p>
+    </div>
+    <div class="plans-even-columns">
+      <div v-for="plan in plans" :key="plan.id">
+        <Plan
+          :id="plan.id"
+          :name="plan.name"
+          :price="plan.price"
+          :isFree="plan.isFree"
+          :is-most-used="plan.isMostUsed"
+          :description="plan.description"
+          :target-audience="plan.targetAudience"
+          :plan-features="plan.planFeatures"
+          :applications-available="plan.applicationsAvailable"
+          :additional-features="plan.additionalFeatures"
+          @select-plan="handleSelectPlan"
+        />
+      </div>
+    </div>
+  </main>
 </template>
-<style></style>
+<style>
+main {
+  padding: 4rem;
+}
+
+.plans-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem;
+  text-align: center;
+  width: 70%;
+}
+
+.plans-header label {
+  color: var(--default-red);
+  text-decoration: underline;
+}
+
+.plans-even-columns {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+</style>
