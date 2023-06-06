@@ -7,11 +7,10 @@ import Login from "@/Views/Login.vue";
 import Home from "@/Views/Home.vue";
 import PlanShow from "@/Views/PlanShow.vue";
 import SignUp from "@/Views/SignUp.vue";
-import { useAuthenticate } from "./store";
 
 const pinia = createPinia();
 
-const isAuthenticated = true;
+const isAuthenticated = false;
 
 const router = createRouter({
   history: createWebHistory(),
@@ -25,9 +24,14 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const auth = useAuthenticate();
-  console.log(auth.isAuthenticated);
-  if (to.name !== "Login" && !isAuthenticated) {
+  console.log(isAuthenticated);
+  console.log(to.name);
+  if (
+    to.name !== "Login" &&
+    to.name !== "Plans" &&
+    to.name !== "Registration" &&
+    !isAuthenticated
+  ) {
     next({ name: "Login" });
   } else {
     next();
