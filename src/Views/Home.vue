@@ -1,3 +1,13 @@
+<script setup>
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+function handleExitUser() {
+  localStorage.removeItem("token");
+  router.push("/login");
+}
+</script>
 <template>
   <header>
     <nav>
@@ -10,7 +20,7 @@
         <li class="wrapper-user-menu">
           <img src="../assets/Icone-conta.png" alt="user-avatar" />
           <div class="user-menu-options">
-            <a href="">Sair</a>
+            <a @click="handleExitUser">Sair</a>
           </div>
         </li>
       </ul>
@@ -65,6 +75,7 @@ main {
   text-align: center;
   padding-top: 1rem;
   color: var(--font-color-black-dark);
+  cursor: pointer;
 }
 
 .wrapper-user-menu:hover .user-menu-options {
