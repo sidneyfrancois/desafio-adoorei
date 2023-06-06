@@ -7,3 +7,15 @@ export const usePlanStore = defineStore("plans", {
     };
   },
 });
+
+export const useUserStore = defineStore("user", {
+  state: () => {
+    return {
+      id: 0,
+      fullName: "",
+      cellphone: "",
+      email: "",
+      websiteName: "",
+    };
+  },
+});

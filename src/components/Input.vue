@@ -2,6 +2,8 @@
 defineProps({
   label: String,
   dataInput: String,
+  type: String,
+  placeholder: String,
 });
 
 defineEmits(["update:dataInput"]);
@@ -10,10 +12,10 @@ defineEmits(["update:dataInput"]);
   <div class="input-container">
     <label for="e-mail-input">{{ label }}</label>
     <input
-      type="text"
+      :type="type"
       id="e-mail-input"
       name="email"
-      placeholder="Seu e-mail"
+      :placeholder="placeholder"
       class="input-format"
       :value="dataInput"
       @input="$emit('update:dataInput', $event.target.value)"

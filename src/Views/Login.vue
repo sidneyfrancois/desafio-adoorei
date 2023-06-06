@@ -50,8 +50,8 @@ async function handleLoginUser() {
         id="form1"
         class="login-input-container"
       >
-        <Input label="E-mail" v-model:dataInput="email" />
-        <Input label="Senha" v-model:dataInput="password">
+        <Input label="E-mail" type="text" v-model:dataInput="email" />
+        <Input label="Senha" type="password" v-model:dataInput="password">
           <template #bottomLabel>
             <a href="">Esqueci a minha senha</a>
           </template>
